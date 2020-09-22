@@ -17,10 +17,10 @@
 ##### 1、引入插件依赖;
 
 		<dependency>
-			<groupId>com.myh.plugin</groupId>
-			<artifactId>spring-boot-delayed</artifactId>
-			<version>1.0.1</version>
-		</dependency>
+        	<groupId>com.myh.delayed</groupId>
+        	<artifactId>myh-delayed-core</artifactId>
+        	<version>1.0.0</version>
+        </dependency>
 
 
 ##### 2、消息到期，处理相关的业务，请自行定义实现类，继承接口：IDlyProcessorService,

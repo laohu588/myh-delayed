@@ -1,21 +1,18 @@
 package com.myh.delayed.config;
 
+import com.myh.delayed.model.DelayedObject;
+import com.myh.delayed.model.vo.DelayedQueueVo;
+import com.myh.delayed.service.IDlyProcessorService;
+import lombok.extern.slf4j.Slf4j;
+import org.I0Itec.zkclient.IZkDataListener;
+import org.I0Itec.zkclient.ZkClient;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.DelayQueue;
-
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
-
-import org.I0Itec.zkclient.IZkDataListener;
-import org.I0Itec.zkclient.ZkClient;
-
-import com.myh.delayed.model.DelayedObject;
-import com.myh.delayed.model.vo.DelayedQueueVo;
-import com.myh.delayed.service.IDlyProcessorService;
-
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * 管理整个延时消息队列的生命周期;
@@ -23,7 +20,6 @@ import lombok.extern.slf4j.Slf4j;
  * @author myh
  * @date 2019/12/27
  * @copyright copyright (c) 2019
- * @company www.duia.com
  */
 @Slf4j
 public class DelayedQueueConfig {
