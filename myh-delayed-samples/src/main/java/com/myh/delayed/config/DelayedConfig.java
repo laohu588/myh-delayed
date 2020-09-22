@@ -14,7 +14,7 @@ public class DelayedConfig {
     @Resource(name = "queueZkClient")
     private ZkClient zkClient;
 
-    private static final String zkListenerKey = "";
+    private static final String zkListenerKey = "myh_lock001";
 
     @Autowired
     private IDlyProcessorService dlyProcessorService;
