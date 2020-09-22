@@ -14,14 +14,14 @@ public class DelayedConfig {
     @Resource(name = "queueZkClient")
     private ZkClient zkClient;
 
-    private static final String zkListenerKey = "myh_lock001";
+    private static final String zkListenerKey = "/myh_lock001";
 
     @Autowired
     private IDlyProcessorService dlyProcessorService;
 
     @Bean("delayedQueue")
-    public DelayedQueueConfig delayedQueue() {
-        DelayedQueueConfig config = new DelayedQueueConfig();
+    public InitDelayedQueue delayedQueue() {
+        InitDelayedQueue config = new InitDelayedQueue();
         config.setDlyProcessorService(dlyProcessorService);//处理消息到期的业务类接口;
         config.setZkClient(zkClient);//建立zkclient连接的对象;
         config.setZkListenerKey(zkListenerKey);//当消息队列发生变量，zk监听的节点名称,请以"/"为前缀;

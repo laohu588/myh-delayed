@@ -8,13 +8,13 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @Slf4j
-public class LockConfig implements InitializingBean {
+public class ZookeeperConfig implements InitializingBean {
 
     private String zkAddress;
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        zkAddress = "192.168.1.1:2181";
+        zkAddress = "zk1.zk.test.duia.com:2181";
         log.info(">>>lock zookeeper msg：" + zkAddress);
     }
 
