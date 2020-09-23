@@ -1,6 +1,6 @@
 package com.myh.delayed.config;
 
-import com.myh.delayed.model.vo.DelayedQueueVo;
+import com.myh.delayed.model.DelayedQueueVo;
 import com.myh.delayed.service.IDlyProcessorService;
 import lombok.extern.slf4j.Slf4j;
 import org.I0Itec.zkclient.ZkClient;
