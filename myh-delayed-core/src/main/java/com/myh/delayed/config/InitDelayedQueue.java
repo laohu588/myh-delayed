@@ -28,7 +28,7 @@ public class InitDelayedQueue {
         takeQueue.start();
 
         // 2、项目启动，初始化消息队列数据;
-        this.dlyProcessorService.boot();
+        this.dlyProcessorService.bootInit();
 
         // 3、注册zk 监听事件;
         initZkListener(dlyProcessorService);
@@ -47,14 +47,26 @@ public class InitDelayedQueue {
      */
     private void initZkListener(IDlyProcessorService dlyProcessorService) {
         IZkDataListener izkDataListener = new IZkDataListener() {
+            /**
+             * 节点删除事件;
+             *
+             * @param dataPath
+             * @throws Exception
+             */
             @Override
             public void handleDataDeleted(String dataPath) throws Exception {
-                dlyProcessorService.boot();
+                dlyProcessorService.bootInit();
             }
 
+            /**
+             * 节点数据变更事件;
+             * @param dataPath
+             * @param data
+             * @throws Exception
+             */
             @Override
             public void handleDataChange(String dataPath, Object data) throws Exception {
-                dlyProcessorService.boot();
+                dlyProcessorService.bootInit();
             }
         };
         // 节点注册事件;

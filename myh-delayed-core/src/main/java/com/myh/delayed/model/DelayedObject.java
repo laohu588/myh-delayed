@@ -6,11 +6,10 @@ package com.myh.delayed.model;
  * @author myh
  * @date 2019/12/27
  * @copyright copyright (c) 2019
- * @company www.duia.com
  */
 public class DelayedObject {
 
-    private int id;// 业务对象id;
+    private int id;// 业务对象主键唯一id;
     private long delayTime;// 延时的时长,单位：秒;
 
     public int getId() {

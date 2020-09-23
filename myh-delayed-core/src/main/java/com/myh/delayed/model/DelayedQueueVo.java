@@ -9,12 +9,11 @@ import java.util.concurrent.TimeUnit;
  * @author myh
  * @date 2019/12/27
  * @copyright copyright (c) 2019
- * @company www.duia.com
  */
 public class DelayedQueueVo implements Delayed {
 
     private long activeTime;// 存活时长，单位：秒;
-    private int queueId;// 队列消息ID;
+    private int queueId;// 队列消息唯一ID;
     private long expirationTime;
 
     public DelayedQueueVo(long expirationTime, int queueId) {
