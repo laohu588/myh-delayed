@@ -35,7 +35,7 @@ public class TakeDelayedQueueThread implements Runnable {
 
                     // 1、消息到期，处理相关的业务;
                     this.dlyProcessorService.process(itemOrder.getQueueId());
-                    log.info(">>> 处理一个过期的延时消息数据,详情：{}", itemOrder.toString());
+                    log.info(">>> 延时消息详情：{}", itemOrder.toString());
                     // 2、触发zk监听，解决节点集群部署环境下，各节点延时队列数据不一致的问题。
                     triggerMonitor();
 

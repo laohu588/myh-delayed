@@ -32,8 +32,7 @@ public class DlyProcessorService implements IDlyProcessorService {
     /**
      * 当延时队列消息到期，处理相关业务<br>
      * 注意：
-     * 1、如果服务是集群部署，要处理的业务记得加锁，保证节点只有一个能执行;相反，不用加锁;
-     * 2、插件自带基于zookeeper实现的分布锁;
+     * 如果服务是集群部署，要处理的业务记得加锁，保证多个节点只有一个能正常执行;相反，不用加锁;
      *
      * @param id 消息主键ID;
      */
