@@ -26,9 +26,11 @@ public class DelayedQueueHandle {
      * @param delayedObject
      */
     public static void addDelayQueue(DelayedObject delayedObject) {
+
         DelayedQueueVo itemVo = new DelayedQueueVo(delayedObject.getDelayTime(), delayedObject.getId());
         delayQueue.put(itemVo);
-        log.info(">>> 添加队列[延时时长：{}秒],延时队列详情：", delayedObject.getDelayTime(), delayedObject.toString());
+
+        log.info(">>> 添加队列[delayed_id：{}],延时队列详情：", delayedObject.getId(), delayedObject.toString());
 
     }
 
@@ -38,7 +40,6 @@ public class DelayedQueueHandle {
     public static List<DelayedQueueVo> selDelayQueue() {
 
         List<DelayedQueueVo> delayQueueList = new ArrayList<>();
-
         Iterator<DelayedQueueVo> it = delayQueue.iterator();
 
         while (it.hasNext()) {
@@ -56,12 +57,17 @@ public class DelayedQueueHandle {
     public static boolean removeDelayQueue(DelayedObject delayedObject) {
 
         DelayedQueueVo itemVo = new DelayedQueueVo(delayedObject.getDelayTime(), delayedObject.getId());
-
         boolean result = delayQueue.remove(itemVo);
-
         log.info(">>> 从队列中移除消息队列对象：{},移除结果：{}", delayedObject.toString(), result);
 
         return result;
+    }
+
+    /**
+     * 清除所有延时列表数据;
+     */
+    public static void clearAllDelayQueue() {
+        delayQueue.clear();
     }
 
 
